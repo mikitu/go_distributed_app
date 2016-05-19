@@ -5,7 +5,7 @@ var goPath = 'src/distributed/**/*.go';
 
 gulp.task('compilepkg', function() {
   return gulp.src(goPath, {read: false})
-    .pipe(shell(['go install <%= stripPath(file.path) %>'],
+    .pipe(shell(['export GOPATH=$(pwd) && go install <%= stripPath(file.path) %>'],
     {
       templateData: {
         stripPath: function(filePath) {
