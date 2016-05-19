@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mikitu/go_distributed_app",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.1"
   }
 }
