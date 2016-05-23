@@ -1,13 +1,17 @@
 package main
 
 import (
-	"distributed/controller"
-	"fmt"
+    "distributed/controller"
+    "fmt"
 )
 
+var dc *controller.DatabaseConsumer
+
 func main() {
-	ql := controller.NewQueueListener()
-	go ql.ListenForNewSources()
-	var a string
-	fmt.Scanln(&a)
+    ea := controller.NewEventAgregator()
+    dc := controller.NewDatabaseConsumer(ea)
+    ql := controller.NewQueueListener(ea)
+    go ql.ListenForNewSources()
+    var a string
+    fmt.Scanln(&a)
 }
